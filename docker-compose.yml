@@ -4,7 +4,7 @@ volumes:
   pg_data:
   static:
 
-services:x
+services:
   db:
     image: postgres:13
     env_file: .env
@@ -22,7 +22,7 @@ services:x
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
-
+      
   gateway:
     build: ./gateway/
     env_file: .env
