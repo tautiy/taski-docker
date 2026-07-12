@@ -5,6 +5,10 @@ volumes:
 services:
   db:
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 256M
     image: postgres:13.10
     env_file: .env
     volumes:
@@ -12,6 +16,10 @@ services:
 
   backend:
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 256M
     image: tautiy/taski_backend:latest
     env_file: .env
     volumes:
@@ -26,6 +34,10 @@ services:
 
   gateway:
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 256M
     image: tautiy/taski_gateway:latest
     env_file: .env
     volumes:
